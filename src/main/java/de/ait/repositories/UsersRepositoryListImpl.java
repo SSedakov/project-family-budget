@@ -1,22 +1,28 @@
 package de.ait.repositories;
 
+import de.ait.models.FamilyMember;
 import de.ait.models.User;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class UsersRepositoryListImpl implements UsersRepository {
-    @Override
-    public List<User> findAll() {
-        User user = new User("User1", "User1", 20, 1.81);
-        User user1 = new User("User2", "User2", 25, 1.85);
-        User user2 = new User("User3", "User3", 30, 1.90);
+//public class UsersRepositoryListImpl implements UsersRepository {
+    /*
 
-        List<User> users = new ArrayList<>();
+
+    @Override
+    public List<FamilyMember> findAll() {
+        FamilyMember user = new User();
+        FamilyMember user1 = new User();
+        FamilyMember user2 = new User();
+
+        List<FamilyMember> users = new ArrayList<>();
         users.add(user);
         users.add(user1);
-        users.add(user2);
+        users.add(FamilyMember
 
         return users;
-    }
+
 }
+         */
+//}

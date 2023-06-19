@@ -1,7 +1,7 @@
 package de.ait.app;
 
 import de.ait.repositories.UsersRepository;
-import de.ait.repositories.UsersRepositoryListImpl;
+//import de.ait.repositories.UsersRepositoryListImpl;
 import de.ait.repositories.UsersRepositoryTextFileImpl;
 import de.ait.services.UsersService;
 import de.ait.services.UsersServiceImpl;
@@ -15,11 +15,12 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         // компонент, который содержит информацию о файле
         // содержит логику работы с этим файлом - получение всех пользователей
-        UsersRepository usersRepository = new UsersRepositoryTextFileImpl("users2.txt");
-        UsersRepository testUserRepository = new UsersRepositoryListImpl();
+        UsersRepository usersRepository = new UsersRepositoryTextFileImpl("familyMember.txt");
+       // UsersRepository testUserRepository = new UsersRepositoryListImpl();
         // компонент, который содержит логику самой программы - получение имен всех пользователей
         UsersService usersService = new UsersServiceImpl(usersRepository);
-
+        System.out.println(usersRepository.findAll());
+/*
         while (true) {
             System.out.println("1. Вывести имена всех пользователей");
             System.out.println("2. Вывести фамилию самого взрослого пользователя");
@@ -58,5 +59,7 @@ public class Main {
                     System.out.println("Команда не распознана");
             }
         }
+        */
+
     }
 }
