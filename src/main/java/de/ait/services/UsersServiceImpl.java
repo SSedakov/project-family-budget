@@ -16,13 +16,13 @@ public class UsersServiceImpl implements UsersService {
 
     @Override
     public List<String> getNames() {
-        List<FamilyMember> users = usersRepository.findAll(); // получаем всех пользователей
-        List<String> names = new ArrayList<>(); // создаем пустой список имен
+        List<FamilyMember> users = usersRepository.findAll();
+        List<String> names = new ArrayList<>();
 
-        for (FamilyMember user : users) { // пробегаемся по всем пользователям
-            names.add(user.getFirstName()); // добавляем имя пользователя в список имен
+        for (FamilyMember user : users) {
+            names.add(user.getFirstName());
         }
-        // возвращаем имена
+
         return names;
     }
 
@@ -32,12 +32,11 @@ public class UsersServiceImpl implements UsersService {
         List<FamilyMember> users = usersRepository.findAll();
         Map<Integer, String> userAge = new HashMap<>();
 
-        for (FamilyMember user : users) { // пробегаем по всему списку
-            userAge.put(user.getAge(), user.getLastName()); // добавили пару возраст-фамилия
+        for (FamilyMember user : users) {
+            userAge.put(user.getAge(), user.getLastName());
         }
 
-        int maxAge = Collections.max(userAge.keySet()); // находим максимальный возраст
-
-        return userAge.get(maxAge); // возвращаем фамилию, которая лежит под максимальным ключом
+        int maxAge = Collections.max(userAge.keySet());
+        return userAge.get(maxAge);
     }
 }

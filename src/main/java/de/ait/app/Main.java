@@ -1,7 +1,8 @@
 package de.ait.app;
 
 import de.ait.repositories.UsersRepository;
-//import de.ait.repositories.UsersRepositoryListImpl;
+import de.ait.repositories.UsersRepositoryListImpl;
+import de.ait.repositories.UsersRepositoryListImpl;
 import de.ait.repositories.UsersRepositoryTextFileImpl;
 import de.ait.services.UsersService;
 import de.ait.services.UsersServiceImpl;
@@ -13,45 +14,34 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        // компонент, который содержит информацию о файле
-        // содержит логику работы с этим файлом - получение всех пользователей
         UsersRepository usersRepository = new UsersRepositoryTextFileImpl("familyMember.txt");
-       // UsersRepository testUserRepository = new UsersRepositoryListImpl();
-        // компонент, который содержит логику самой программы - получение имен всех пользователей
+        UsersRepository testUserRepository = new UsersRepositoryListImpl();
         UsersService usersService = new UsersServiceImpl(usersRepository);
         System.out.println(usersRepository.findAll());
-/*
-        while (true) {
-            System.out.println("1. Вывести имена всех пользователей");
-            System.out.println("2. Вывести фамилию самого взрослого пользователя");
 
-            System.out.println("3. Сохранить нового пользователя"); // с консоли считываете имя фамилию возраст рост и сохраняете в файл
-            System.out.println("4. Вывести средний возраст всех пользователей");
-            System.out.println("5. Вывести возраст самого высокого человека");
-            System.out.println("6. Вывести имя и фамилию самого низкого человека");
+        while (true) {
+            System.out.println("1. Вывести имена всех членов семьи");
+            System.out.println("2. Вывести актуальный семейный бюджет");
+            System.out.println("3. Вывести отложенную сумму");
+            System.out.println("4. Вывести сумму потраченную за прошедший месяц");
 
             System.out.println("0. Выход");
 
-            int command = scanner.nextInt(); // считываем команду
-            scanner.nextLine(); // перейти на новую строку
+            int command = scanner.nextInt();
+            scanner.nextLine();
 
             switch (command) {
                 case 1:
-                    System.out.println("Выводим имена пользователей...");
-                    // получаем имена всех пользователей через сервис
+                    System.out.println("Выводим имена всех членов семьи");
                     List<String> names = usersService.getNames();
-                    // выводим
                     for (String name : names) {
                         System.out.println(name);
                     }
 
                     break;
-                case 2:
-                    System.out.println("Выводим самого взрослого пользователя");
-                    String lastName = usersService.getLastNameOfMostAging();
-                    System.out.println(lastName);
 
-                    break;
+
+
                 case 0:
                     System.out.println("Выход");
                     System.exit(0);
@@ -59,7 +49,5 @@ public class Main {
                     System.out.println("Команда не распознана");
             }
         }
-        */
-
     }
 }
