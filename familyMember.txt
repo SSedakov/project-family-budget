@@ -1,4 +1,4 @@
-Ivan|Ivanov|35|father
-Mari|Ivanova|30|mother
-Daniil|Ivanov|7|son
-Liana|Ivanova|5|daughter
+Ivan|Ivanov|35|father|4000
+Mari|Ivanova|30|mother|4000
+Daniil|Ivanov|7|son|0
+Liana|Ivanova|5|daughter|0

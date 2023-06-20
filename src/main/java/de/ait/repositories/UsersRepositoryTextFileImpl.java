@@ -1,7 +1,6 @@
 package de.ait.repositories;
 
 import de.ait.models.FamilyMember;
-import de.ait.models.User;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -40,15 +39,18 @@ public class UsersRepositoryTextFileImpl implements UsersRepository {
         return users;
     }
 
+
     private static FamilyMember parseLine(String line) {
         String[] parsed = line.split("\\|");
         String firstName = parsed[0];
         String lastName = parsed[1];
         int age = Integer.parseInt(parsed[2]);
         String status = parsed[3];
+        int salary = Integer.parseInt(parsed[4]);
 
         return new FamilyMember(
-                firstName, lastName, age, status
+                firstName, lastName, age, status,salary
         );
     }
+
 }

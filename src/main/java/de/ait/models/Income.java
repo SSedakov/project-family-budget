@@ -3,13 +3,14 @@ package de.ait.models;
 import java.time.LocalDate;
 import java.util.UUID;
 
-public class Expense {
+public class Income {
     private String purpose;
-    private int sum;
+    private int  sum;
     private LocalDate date;
     private String id;
 
-    public Expense(String purpose, int sum, LocalDate date) {
+
+    public Income(String purpose, int sum, LocalDate date) {
         this.purpose = purpose;
         this.sum = sum;
         this.date = date;
@@ -20,12 +21,24 @@ public class Expense {
         return purpose;
     }
 
-    public double getSum() {
+    public void setPurpose(String purpose) {
+        this.purpose = purpose;
+    }
+
+    public int getSum() {
         return sum;
+    }
+
+    public void setSum(int sum) {
+        this.sum = sum;
     }
 
     public LocalDate getDate() {
         return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
     public String getId() {
@@ -36,22 +49,10 @@ public class Expense {
         this.id = id;
     }
 
-    public void setPurpose(String purpose) {
-        this.purpose = purpose;
-    }
-
-    public void setSum(int sum) {
-        this.sum = sum;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
     @Override
     public String toString() {
-        return "Expense{" +
-                "Списание ='" + purpose + '\'' +
+        return "Income{" +
+                "Поступление ='" + purpose + '\'' +
                 ", sum=" + sum +
                 ", date=" + date +
                 ", id='" + id + '\'' +

@@ -1,21 +1,40 @@
 package de.ait.models;
 
+import java.util.UUID;
+
 public class FamilyMember {
     private String firstName;
     private String lastName;
     private int age;
     private String status;
+    private int salary;
+    private String id;
 
 
-    public FamilyMember(String firstName, String lastName, int age, String status) {
+    public FamilyMember(String firstName, String lastName, int age, String status,int salary) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
         this.status = status;
+        this.salary = salary;
+        this.id = UUID.randomUUID().toString();
     }
 
+    public String getId() {
+        return id;
+    }
 
+    public void setId(String id) {
+        this.id = id;
+    }
 
+    public int getSalary() {
+        return salary;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -56,6 +75,8 @@ public class FamilyMember {
                 ", lastName='" + lastName + '\'' +
                 ", age=" + age +
                 ", status='" + status + '\'' +
+                ", salary=" + salary +
+                ", id='" + id + '\'' +
                 '}';
     }
 }

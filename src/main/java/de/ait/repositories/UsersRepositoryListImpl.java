@@ -1,7 +1,6 @@
 package de.ait.repositories;
 
 import de.ait.models.FamilyMember;
-import de.ait.models.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,13 +10,13 @@ public class UsersRepositoryListImpl implements UsersRepository {
     @Override
     public List<FamilyMember> findAll() {
         FamilyMember user1 =
-                new FamilyMember("Ivan", "Ivanov", 35, "father");
+                new FamilyMember("Ivan", "Ivanov", 35, "father",4000);
         FamilyMember user2 =
-                new FamilyMember("Mari", "Ivanova", 30, "mother");
+                new FamilyMember("Mari", "Ivanova", 30, "mother",4000);
         FamilyMember user3 =
-                new FamilyMember("Daniil", "Ivanov", 7, "son");
+                new FamilyMember("Daniil", "Ivanov", 7, "son",0);
         FamilyMember user4 =
-                new FamilyMember("Liana", "Ivanova", 5, "daughter");
+                new FamilyMember("Liana", "Ivanova", 5, "daughter",0);
 
         List<FamilyMember> users = new ArrayList<>();
         users.add(user1);
