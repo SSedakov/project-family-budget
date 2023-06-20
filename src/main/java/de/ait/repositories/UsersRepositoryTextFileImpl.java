@@ -3,6 +3,7 @@ package de.ait.repositories;
 import de.ait.models.Family;
 import de.ait.models.FamilyMember;
 
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -17,7 +18,6 @@ public class UsersRepositoryTextFileImpl implements UsersRepository {
     public UsersRepositoryTextFileImpl(String fileName) {
         this.fileName = fileName;
     }
-
     public int getTotalBudget() {
         return totalBudget;
     }
@@ -30,7 +30,7 @@ public class UsersRepositoryTextFileImpl implements UsersRepository {
     public List<FamilyMember> findAll() {
         List<FamilyMember> users = new ArrayList<>();
 
-        try (FileReader fileReader = new FileReader(fileName); 
+        try (FileReader fileReader = new FileReader(fileName);
              BufferedReader bufferedReader = new BufferedReader(fileReader)) {
 
             String line = bufferedReader.readLine();
@@ -48,7 +48,9 @@ public class UsersRepositoryTextFileImpl implements UsersRepository {
     }
 
 
-    public  FamilyMember parseLine(String line) {
+
+
+    public FamilyMember parseLine(String line) {
         String[] parsed = line.split("\\|");
         String firstName = parsed[0];
         String lastName = parsed[1];
@@ -59,11 +61,12 @@ public class UsersRepositoryTextFileImpl implements UsersRepository {
         totalBudget = totalBudget + salary;
 
         return new FamilyMember(
-                firstName, lastName, age, status,salary
+                firstName, lastName, age, status, salary
         );
     }
-    public void addBudget(Family family) {
-        family.addBudget(totalBudget);
-    }
+    //public void addBudget(Family family) {
+    //    family.addBudget(totalBudget);
+ }
 
-}
+
+

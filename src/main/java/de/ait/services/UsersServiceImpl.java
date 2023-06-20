@@ -11,6 +11,7 @@ import java.util.*;
 public class UsersServiceImpl implements UsersService {
 
     private UsersRepository usersRepository;
+    private FamilyMember family;
 
 
 
@@ -31,9 +32,10 @@ public class UsersServiceImpl implements UsersService {
         return names;
     }
 
+}
 
 
-
+/*
     @Override
     public void writeTransactionsToFile
             (List<Income> incomes, List<Expense> expenses, List<Accumulation> accumulations) {
@@ -65,7 +67,8 @@ public class UsersServiceImpl implements UsersService {
             System.out.println("Ошибка при записи транзакций в файл: " + e.getMessage());
         }
     }
+*/
 
 
-}
+
 

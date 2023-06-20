@@ -18,6 +18,27 @@ public class Main {
         UsersRepository testUserRepository = new UsersRepositoryListImpl();
         UsersService usersService = new UsersServiceImpl(usersRepository);
         System.out.println(usersRepository.findAll());
+        System.out.println("Планируется в вашей семье дополнительный доход в этом месяце(кроме зп)?");
+        System.out.println("Да=1, Нет=2");
+        int command=0;
+        String commandString="";
+        int commandInt=0;
+        command = scanner.nextInt();
+        scanner.nextLine();
+        if (command==1) {
+            System.out.println("Укажите источник дохода");
+            commandString = scanner.nextLine();
+            //scanner.nextLine();
+            System.out.println("Укажите сумму дохода");
+            commandInt= scanner.nextInt();
+
+        }
+
+        System.out.println(commandString);
+        System.out.println(commandInt);
+
+
+
 
 
         while (true) {
@@ -28,7 +49,7 @@ public class Main {
 
             System.out.println("0. Выход");
 
-            int command = scanner.nextInt();
+          command = scanner.nextInt();
             scanner.nextLine();
 
             switch (command) {

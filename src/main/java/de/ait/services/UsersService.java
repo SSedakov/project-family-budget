@@ -8,6 +8,5 @@ public interface UsersService {
     List<String> getNames();
 
 
-    public void writeTransactionsToFile
-            (List<Income> incomes, List<Expense> expenses, List<Accumulation> accumulations);
+
 }
