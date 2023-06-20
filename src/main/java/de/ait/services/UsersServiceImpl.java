@@ -14,6 +14,7 @@ public class UsersServiceImpl implements UsersService {
 
 
 
+
     public UsersServiceImpl(UsersRepository usersRepository) {
         this.usersRepository = usersRepository;
     }
@@ -30,10 +31,8 @@ public class UsersServiceImpl implements UsersService {
         return names;
     }
 
-    @Override
-    public int addBudget(List<FamilyMember> family) {
-        return 0;
-    }
+
+
 
     @Override
     public void writeTransactionsToFile

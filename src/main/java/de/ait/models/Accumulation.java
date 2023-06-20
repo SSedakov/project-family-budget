@@ -9,7 +9,7 @@ public class Accumulation {
     private LocalDate date;
     private String id;
 
-    public Accumulation(String purpose, int sum, LocalDate date) {
+    public Accumulation(String purpose, LocalDate date) {
         this.purpose = purpose;
         this.sum = 100;
         this.date = date;

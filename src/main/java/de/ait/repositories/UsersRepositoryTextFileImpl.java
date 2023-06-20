@@ -1,5 +1,6 @@
 package de.ait.repositories;
 
+import de.ait.models.Family;
 import de.ait.models.FamilyMember;
 
 import java.io.BufferedReader;
@@ -11,12 +12,19 @@ import java.util.List;
 public class UsersRepositoryTextFileImpl implements UsersRepository {
 
     private String fileName;
+    private int totalBudget = 0;
 
     public UsersRepositoryTextFileImpl(String fileName) {
         this.fileName = fileName;
     }
 
+    public int getTotalBudget() {
+        return totalBudget;
+    }
 
+    public void setTotalBudget(int totalBudget) {
+        this.totalBudget = totalBudget;
+    }
 
     @Override
     public List<FamilyMember> findAll() {
@@ -40,7 +48,7 @@ public class UsersRepositoryTextFileImpl implements UsersRepository {
     }
 
 
-    private static FamilyMember parseLine(String line) {
+    public  FamilyMember parseLine(String line) {
         String[] parsed = line.split("\\|");
         String firstName = parsed[0];
         String lastName = parsed[1];
@@ -48,9 +56,14 @@ public class UsersRepositoryTextFileImpl implements UsersRepository {
         String status = parsed[3];
         int salary = Integer.parseInt(parsed[4]);
 
+        totalBudget = totalBudget + salary;
+
         return new FamilyMember(
                 firstName, lastName, age, status,salary
         );
+    }
+    public void addBudget(Family family) {
+        family.addBudget(totalBudget);
     }
 
 }

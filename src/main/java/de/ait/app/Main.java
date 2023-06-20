@@ -19,6 +19,7 @@ public class Main {
         UsersService usersService = new UsersServiceImpl(usersRepository);
         System.out.println(usersRepository.findAll());
 
+
         while (true) {
             System.out.println("1. Вывести имена всех членов семьи");
             System.out.println("2. Вывести актуальный семейный бюджет");
