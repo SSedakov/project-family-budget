@@ -38,8 +38,55 @@ public class Main {
         System.out.println(commandInt);
 
 
+        System.out.println("Получаете ли вы пенсию? (Да/Нет)");
+        String pension = scanner.nextLine();
+        if (pension.equals("Да")){
+            System.out.println("Укажите размер пенсии");
+            int pensionSize = scanner.nextInt();
+            System.out.println("Размер пенсии: " + pensionSize);
+        } else {
+            System.out.println("Следующий вопрос...");
+        }
 
+        System.out.println("Получаете ли вы стипендию? (Да/Нет)");
+        String scholarship = scanner.nextLine();
+        if (scholarship.equals("Да")){
+            System.out.println("Укажите размер стипендии");
+            int scholarshipSize = scanner.nextInt();
+            System.out.println("Размер стипендии: " + scholarshipSize);
+        } else {
+            System.out.println("Следующий вопрос...");
+        }
 
+        System.out.println("Оплачиваете ли вы коммунальные услуги? (Да/Нет)");
+        String publicUtilities = scanner.nextLine();
+        if (publicUtilities.equals("Да")){
+            System.out.println("Укажите размер платы за коммунальные услуги");
+            int publicUtilitiesSize = scanner.nextInt();
+            System.out.println("Размер платы за коммунальные услуги: " + publicUtilitiesSize);
+        } else {
+            System.out.println("Следующий вопрос...");
+        }
+
+        System.out.println("Оплачиваете ли вы медицинское страхование? (Да/Нет)");
+        String insurance = scanner.nextLine();
+        if (insurance.equals("Да")){
+            System.out.println("Укажите размер платы за медицинское страхование");
+            int insuranceSize = scanner.nextInt();
+            System.out.println("Размер платы за медицинское страхование: " + insuranceSize);
+        } else {
+            System.out.println("Следующий вопрос...");
+        }
+
+        System.out.println("Оплачиваете ли вы кредит? (Да/Нет)");
+        String credit = scanner.nextLine();
+        if (credit.equals("Да")){
+            System.out.println("Укажите размер кредита");
+            int creditSize = scanner.nextInt();
+            System.out.println("Размер оплаты кредита: " + creditSize);
+        } else {
+            System.out.println("Следующий вопрос...");
+        }
 
         while (true) {
             System.out.println("1. Вывести имена всех членов семьи");
