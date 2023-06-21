@@ -2,11 +2,9 @@ package de.ait.app;
 
 import de.ait.repositories.UsersRepository;
 import de.ait.repositories.UsersRepositoryListImpl;
-import de.ait.repositories.UsersRepositoryListImpl;
 import de.ait.repositories.UsersRepositoryTextFileImpl;
 import de.ait.services.UsersService;
 import de.ait.services.UsersServiceImpl;
-import org.w3c.dom.ls.LSOutput;
 
 import java.util.List;
 import java.util.Scanner;
@@ -17,7 +15,10 @@ public class Main {
         UsersRepository usersRepository = new UsersRepositoryTextFileImpl("familyMember.txt");
         UsersRepository testUserRepository = new UsersRepositoryListImpl();
         UsersService usersService = new UsersServiceImpl(usersRepository);
-        System.out.println(usersRepository.findAll());
+
+        System.out.println(usersRepository.createFamily());
+
+
         System.out.println("Планируется в вашей семье дополнительный доход в этом месяце(кроме зп)?");
         System.out.println("Да=1, Нет=2");
         int command=0;
@@ -34,8 +35,11 @@ public class Main {
 
         }
 
-        System.out.println(commandString);
-        System.out.println(commandInt);
+        System.out.println(usersRepository.addToList(commandString, commandInt));
+
+
+        System.out.println(usersRepository.formBudget());
+
 
 
         System.out.println("Получаете ли вы пенсию? (Да/Нет)");
@@ -59,11 +63,15 @@ public class Main {
         }
 
         System.out.println("Оплачиваете ли вы коммунальные услуги? (Да/Нет)");
-        String publicUtilities = scanner.nextLine();
-        if (publicUtilities.equals("Да")){
+        commandString = scanner.nextLine();
+        if (commandString.equals("Да")){
             System.out.println("Укажите размер платы за коммунальные услуги");
-            int publicUtilitiesSize = scanner.nextInt();
-            System.out.println("Размер платы за коммунальные услуги: " + publicUtilitiesSize);
+            commandInt = scanner.nextInt();
+            System.out.println("Размер платы за коммунальные услуги: " + commandInt);
+            usersService.possibleBuy(commandInt);
+            System.out.println(usersRepository.addToList(commandString, -commandInt));
+            System.out.println(usersRepository.formBudget());
+
         } else {
             System.out.println("Следующий вопрос...");
         }

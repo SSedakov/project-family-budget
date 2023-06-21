@@ -3,9 +3,6 @@ package de.ait.services;
 import de.ait.models.*;
 import de.ait.repositories.UsersRepository;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.*;
 
 public class UsersServiceImpl implements UsersService {
@@ -22,7 +19,7 @@ public class UsersServiceImpl implements UsersService {
 
     @Override
     public List<String> getNames() {
-        List<FamilyMember> users = usersRepository.findAll();
+        List<FamilyMember> users = usersRepository.createFamily();
         List<String> names = new ArrayList<>();
 
         for (FamilyMember user : users) {
@@ -31,6 +28,19 @@ public class UsersServiceImpl implements UsersService {
 
         return names;
     }
+
+
+    public boolean possibleBuy( int sum) {
+        int totalSum =  usersRepository.formBudget();
+        if (sum > totalSum){
+            System.out.println("Покупка не возможна, считай бюджет");
+            return false;
+
+        }
+        System.out.println("Покупай");
+        return true;
+    }
+
 
 }
 

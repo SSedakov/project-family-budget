@@ -20,6 +20,8 @@ public class Family {
 
     }
 
+
+
     @Override
     public String toString() {
         return "Family{" +
@@ -70,59 +72,7 @@ public class Family {
     public void setIncomeExpenses(List<IncomeExpenses> incomeExpenses) {
         this.incomeExpenses = incomeExpenses;
     }
+
+
 }
-
-     class IncomeExpenses {
-    private String title;
-    private int sum;
-    private String id;
-
-        @Override
-        public String toString() {
-            return "IncomeExpenses{" +
-                    "title='" + title + '\'' +
-                    ", sum=" + sum +
-                    ", id='" + id + '\'' +
-                    '}';
-        }
-
-        public String getTitle() {
-            return title;
-        }
-
-        public void setTitle(String title) {
-            this.title = title;
-        }
-
-        public int getSum() {
-            return sum;
-        }
-
-        public void setSum(int sum) {
-            this.sum = sum;
-        }
-
-        public String getId() {
-            return id;
-        }
-
-        public void setId(String id) {
-            this.id = id;
-        }
-
-        public IncomeExpenses(String title, int sum, String id) {
-            this.title = title;
-            this.sum = 0;
-            this.id = UUID.randomUUID().toString();
-
-        }
-
-
-
-   // public void addBudget(int cash){
-   //     balance = balance + ((cash/100) * 90);
-   //     asideMoney = asideMoney + ((cash/100) * 10);
-   //}
-
-    }
 

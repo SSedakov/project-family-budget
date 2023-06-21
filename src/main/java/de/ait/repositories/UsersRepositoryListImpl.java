@@ -1,6 +1,7 @@
 package de.ait.repositories;
 
 import de.ait.models.FamilyMember;
+import de.ait.models.IncomeExpenses;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.List;
 public class UsersRepositoryListImpl implements UsersRepository {
 
     @Override
-    public List<FamilyMember> findAll() {
+    public List<FamilyMember> createFamily() {
         FamilyMember user1 =
                 new FamilyMember("Ivan", "Ivanov", 35, "father",4000);
         FamilyMember user2 =
@@ -26,4 +27,21 @@ public class UsersRepositoryListImpl implements UsersRepository {
 
         return users;
     }
+
+
+    public List<IncomeExpenses> createList() {
+        return null;
+    }
+
+    @Override
+    public  List<IncomeExpenses> addToList(String title, int sum) {
+     return null;
+    }
+
+    @Override
+    public int formBudget() {
+        return 0;
+    }
+
+
 }
