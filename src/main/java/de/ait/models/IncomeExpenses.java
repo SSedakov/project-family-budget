@@ -6,6 +6,7 @@ public class IncomeExpenses {
     private String title;
     private int sum;
     private String id;
+    private String familyId;
 
 
     @Override
@@ -41,10 +42,11 @@ public class IncomeExpenses {
         this.id = id;
     }
 
-    public IncomeExpenses(String title, int sum) {
+    public IncomeExpenses(String title, int sum,String familyId) {
         this.title = title;
         this.sum = sum;
         this.id = UUID.randomUUID().toString();
+        this.familyId = familyId;
 
     }
 

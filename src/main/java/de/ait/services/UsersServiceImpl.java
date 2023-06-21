@@ -30,7 +30,7 @@ public class UsersServiceImpl implements UsersService {
     }
 
 
-    public boolean possibleBuy( int sum) {
+    public boolean possibleBuy(int sum) {
         int totalSum =  usersRepository.formBudget();
         if (sum > totalSum){
             System.out.println("Покупка не возможна, считай бюджет");

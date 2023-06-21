@@ -9,15 +9,22 @@ public class FamilyMember {
     private String status;
     private int salary;
     private String id;
+    private String familyId;
 
 
-    public FamilyMember(String firstName, String lastName, int age, String status,int salary) {
+
+    public FamilyMember(String firstName, String lastName, int age, String status,int salary,String familyId) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
         this.status = status;
         this.salary = salary;
         this.id = UUID.randomUUID().toString();
+        this.familyId = familyId;
+    }
+
+    public String getFamilyId() {
+        return familyId;
     }
 
     public String getId() {
