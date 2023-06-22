@@ -1,10 +1,13 @@
 package de.ait.app;
 
-import de.ait.repositories.UsersRepository;
-import de.ait.repositories.UsersRepositoryListImpl;
-import de.ait.repositories.UsersRepositoryTextFileImpl;
-import de.ait.services.UsersService;
-import de.ait.services.UsersServiceImpl;
+import de.ait.models.FamilyMember;
+import de.ait.models.IncomeExpenses;
+import de.ait.repositories.FamilyRepository;
+import de.ait.repositories.FamilyRepositoryTextFileImpl;
+import de.ait.services.FamilyService;
+import de.ait.services.FamilyServiceImpl;
+import de.ait.services.IncomeExpensesService;
+import de.ait.services.IncomeExpensesServiceImpl;
 
 import java.util.List;
 import java.util.Scanner;
@@ -12,11 +15,16 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        UsersRepository usersRepository = new UsersRepositoryTextFileImpl("familyMember.txt");
-        UsersRepository testUserRepository = new UsersRepositoryListImpl();
-        UsersService usersService = new UsersServiceImpl(usersRepository);
+        FamilyRepository familyRepository = new FamilyRepositoryTextFileImpl("familyMember.txt");
 
-        System.out.println(usersRepository.createFamily());
+
+        FamilyService familyService = new FamilyServiceImpl(familyRepository);
+        IncomeExpensesServiceImpl incomeExpensesService = new IncomeExpensesServiceImpl();
+
+        List<FamilyMember> familyMemberList = familyService.getAllMembers(1);
+        List<IncomeExpenses> incomeExpensesList = incomeExpensesService.formBudget(familyMemberList);
+
+
 
 
         System.out.println("Планируется в вашей семье дополнительный доход в этом месяце(кроме зп)?");
@@ -34,13 +42,6 @@ public class Main {
             commandInt= scanner.nextInt();
 
         }
-
-        System.out.println(usersRepository.addToList(commandString, commandInt));
-
-
-        System.out.println(usersRepository.formBudget());
-
-
 
         System.out.println("Получаете ли вы пенсию? (Да/Нет)");
         String pension = scanner.nextLine();
@@ -68,9 +69,7 @@ public class Main {
             System.out.println("Укажите размер платы за коммунальные услуги");
             commandInt = scanner.nextInt();
             System.out.println("Размер платы за коммунальные услуги: " + commandInt);
-            usersService.possibleBuy(commandInt);
-            System.out.println(usersRepository.addToList(commandString, -commandInt));
-            System.out.println(usersRepository.formBudget());
+
 
         } else {
             System.out.println("Следующий вопрос...");
@@ -110,12 +109,8 @@ public class Main {
             switch (command) {
                 case 1:
                     System.out.println("Выводим имена всех членов семьи");
-                    List<String> names = usersService.getNames();
-                    for (String name : names) {
-                        System.out.println(name);
-                    }
 
-                    break;
+
 
 
 

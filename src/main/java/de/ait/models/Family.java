@@ -5,40 +5,16 @@ import java.util.List;
 import java.util.UUID;
 
 public class Family {
-    List<FamilyMember> family;
     private int balance;
     private int asideMoney;
-    private String id;
-    List<IncomeExpenses> incomeExpenses;
+    private String familyId;
 
-    public Family(List<FamilyMember> family, int balance, int asideMoney, String id,  List<IncomeExpenses> incomeExpenses) {
-        this.family = family;
+
+    public Family( int balance, int asideMoney, String familyId) {
+
         this.balance = balance;
         this.asideMoney = asideMoney;
-        this.id = id;
-        this.incomeExpenses = new ArrayList<IncomeExpenses>();
-
-    }
-
-
-
-    @Override
-    public String toString() {
-        return "Family{" +
-                "family=" + family +
-                ", balance=" + balance +
-                ", asideMoney=" + asideMoney +
-                ", id='" + id + '\'' +
-                ", incomeExpenses=" + incomeExpenses +
-                '}';
-    }
-
-    public List<FamilyMember> getFamily() {
-        return family;
-    }
-
-    public void setFamily(List<FamilyMember> family) {
-        this.family = family;
+        this.familyId = familyId;
     }
 
     public int getBalance() {
@@ -57,22 +33,21 @@ public class Family {
         this.asideMoney = asideMoney;
     }
 
-    public String getId() {
-        return id;
+    public String getFamilyId() {
+        return familyId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setFamilyId(String familyId) {
+        this.familyId = familyId;
     }
 
-    public List<IncomeExpenses> getIncomeExpenses() {
-        return incomeExpenses;
+    @Override
+    public String toString() {
+        return "Family{" +
+                "balance=" + balance +
+                ", asideMoney=" + asideMoney +
+                ", familyId='" + familyId + '\'' +
+                '}';
     }
-
-    public void setIncomeExpenses(List<IncomeExpenses> incomeExpenses) {
-        this.incomeExpenses = incomeExpenses;
-    }
-
-
 }
 

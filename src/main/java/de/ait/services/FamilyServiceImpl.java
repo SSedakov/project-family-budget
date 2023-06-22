@@ -1,44 +1,32 @@
 package de.ait.services;
 
 import de.ait.models.*;
-import de.ait.repositories.UsersRepository;
+import de.ait.repositories.FamilyRepository;
 
-import java.util.*;
+import java.util.List;
 
-public class UsersServiceImpl implements UsersService {
+public class FamilyServiceImpl implements FamilyService {
 
-    private UsersRepository usersRepository;
-    private FamilyMember family;
-
-
+    private FamilyRepository familyRepository;
+    private FamilyMember familyMember;
 
 
-    public UsersServiceImpl(UsersRepository usersRepository) {
-        this.usersRepository = usersRepository;
+
+
+    public FamilyServiceImpl(FamilyRepository familyRepository) {
+        this.familyRepository = familyRepository;
+    }
+
+
+
+    @Override
+    public List<FamilyMember> getAllMembers(int familyId) {
+      return familyRepository.createFamily(familyId);
     }
 
     @Override
-    public List<String> getNames() {
-        List<FamilyMember> users = usersRepository.createFamily();
-        List<String> names = new ArrayList<>();
+    public void getBalanced(int familyId) {
 
-        for (FamilyMember user : users) {
-            names.add(user.getFirstName());
-        }
-
-        return names;
-    }
-
-
-    public boolean possibleBuy(int sum) {
-        int totalSum =  usersRepository.formBudget();
-        if (sum > totalSum){
-            System.out.println("Покупка не возможна, считай бюджет");
-            return false;
-
-        }
-        System.out.println("Покупай");
-        return true;
     }
 
 

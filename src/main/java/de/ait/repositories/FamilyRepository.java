@@ -1,16 +1,9 @@
 package de.ait.repositories;
 
-import de.ait.models.Family;
+import de.ait.models.FamilyMember;
 
-public class FamilyRepository<T> implements CrudRepository<Family> {
+import java.util.List;
 
-    @Override
-    public void save(Family model) {
-
-    }
-
-    @Override
-    public Family findById(String id) {
-        return null;
-    }
+public interface FamilyRepository {
+    List<FamilyMember> createFamily(int familyId);
 }

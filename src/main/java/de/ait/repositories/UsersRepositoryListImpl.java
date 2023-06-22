@@ -6,8 +6,8 @@ import de.ait.models.IncomeExpenses;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UsersRepositoryListImpl implements UsersRepository {
-
+public class UsersRepositoryListImpl  {
+/*
     @Override
     public List<FamilyMember> createFamily() {
         FamilyMember user1 =
@@ -42,6 +42,8 @@ public class UsersRepositoryListImpl implements UsersRepository {
     public int formBudget() {
         return 0;
     }
+
+ */
 
 
 }

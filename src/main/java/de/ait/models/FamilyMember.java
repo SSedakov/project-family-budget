@@ -9,11 +9,10 @@ public class FamilyMember {
     private String status;
     private int salary;
     private String id;
-    private String familyId;
+    private int familyId;
 
 
-
-    public FamilyMember(String firstName, String lastName, int age, String status,int salary,String familyId) {
+    public FamilyMember(String firstName, String lastName, int age, String status, int salary, int familyId) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
@@ -23,7 +22,7 @@ public class FamilyMember {
         this.familyId = familyId;
     }
 
-    public String getFamilyId() {
+    public int getFamilyId() {
         return familyId;
     }
 
