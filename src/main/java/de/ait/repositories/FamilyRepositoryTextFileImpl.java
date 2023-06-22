@@ -40,7 +40,7 @@ public class FamilyRepositoryTextFileImpl implements FamilyRepository {
             System.err.println("Произошла ошибка");
         }
 
-         return members;
+        return members;
     }
     //
 
@@ -54,11 +54,11 @@ public class FamilyRepositoryTextFileImpl implements FamilyRepository {
         String status = parsed[4];
         int salary = Integer.parseInt(parsed[5]);
 
-       // incomeExpenses.add(new IncomeExpenses("Salary ",salary,familyId));
+        // incomeExpenses.add(new IncomeExpenses("Salary ",salary,familyId));
 
         return new FamilyMember(
-             firstName, lastName, age, status, salary,  familyId
-                );
+                firstName, lastName, age, status, salary,  familyId
+        );
     }
 
     /*
@@ -77,6 +77,5 @@ public class FamilyRepositoryTextFileImpl implements FamilyRepository {
      */
 
 }
-
 
 

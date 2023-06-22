@@ -21,7 +21,7 @@ public class FamilyServiceImpl implements FamilyService {
 
     @Override
     public List<FamilyMember> getAllMembers(int familyId) {
-      return familyRepository.createFamily(familyId);
+        return familyRepository.createFamily(familyId);
     }
 
     @Override
@@ -66,7 +66,6 @@ public class FamilyServiceImpl implements FamilyService {
         }
     }
 */
-
 
 
 

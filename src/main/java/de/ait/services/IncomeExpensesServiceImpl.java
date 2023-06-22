@@ -27,7 +27,7 @@ public class IncomeExpensesServiceImpl implements IncomeExpensesService {
     public List<IncomeExpenses> formBudget(List<FamilyMember> list) {
         List<IncomeExpenses> incomeExpenses = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {
-            incomeExpenses.add(new IncomeExpenses("Salary", list.get(i).getSalary(), list.get(i).getFamilyId()));
+            incomeExpenses.add(new IncomeExpenses(list.get(i).getStatus()+" salary", list.get(i).getSalary(), list.get(i).getFamilyId()));
         }
         return incomeExpenses;
 
