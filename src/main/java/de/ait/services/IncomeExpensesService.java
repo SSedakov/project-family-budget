@@ -9,4 +9,5 @@ public interface IncomeExpensesService {
     List<IncomeExpenses> formBudget(List<FamilyMember> list);
     boolean possibleBuy(int sum);
 
+    int addAsideMoney (int x, List<IncomeExpenses> y);
 }

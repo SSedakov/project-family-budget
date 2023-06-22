@@ -42,6 +42,19 @@ public class Main {
                 incomeExpensesList.add(new IncomeExpenses(commandString, commandInt, familyId));
             }
 
+            System.out.println("Планируете ли Вы накопления в этом месяце?");
+            System.out.println("Да=1, Нет=2");
+            command = scanner.nextInt();
+            scanner.nextLine();
+            if (command == 2) {
+            } else {
+                commandString = "Накопления";
+                System.out.println("Какой процент Вы планируете отложить в накопления в этом месяце?");
+                commandInt = scanner.nextInt();
+                commandInt = incomeExpensesService.addAsideMoney(commandInt, incomeExpensesList);
+                incomeExpensesList.add(new IncomeExpenses(commandString, -commandInt, familyId));
+            }
+
             System.out.println("Планируете ли Вы оплатить коммунальные услуги в этом месяце?");
             System.out.println("Да=1, Нет=2");
             command = scanner.nextInt();
@@ -51,49 +64,58 @@ public class Main {
                 commandString = "коммунальные услуги";
                 System.out.println("Какую сумму планируете потратить в этом месяце на коммунальные услуги?");
                 commandInt = scanner.nextInt();
-                if (commandInt > 0) {
-                    commandInt = -commandInt;
+                if (incomeExpensesService.possibleBuy(commandInt)) {
+                    incomeExpensesList.add(new IncomeExpenses(commandString, -commandInt, familyId));
+                } else {
+                    System.out.println("Ваши траты превышают балланс. Вы не можете себе это позволить.");
                 }
-                incomeExpensesList.add(new IncomeExpenses(commandString, commandInt, familyId));
             }
-            System.out.println("Планируете ли Вы отпуск в этом месяце?");
-            System.out.println("Да=1, Нет=2");
-            command = scanner.nextInt();
-            scanner.nextLine();
-            if (command == 2) {
+
+            commandString = "расходы на питание";
+            System.out.println("Какую сумму планируете выделить в этом месяце на продукты");
+            commandInt = scanner.nextInt();
+            if (incomeExpensesService.possibleBuy(commandInt)) {
+                incomeExpensesList.add(new IncomeExpenses(commandString, -commandInt, familyId));
             } else {
-                commandString = "расходы на отпуск";
-                System.out.println("Какую сумму планируете выделить в этом месяце на отпуск");
-                commandInt = scanner.nextInt();
-                if (commandInt > 0) {
-                    commandInt = -commandInt;
-                }
-                incomeExpensesList.add(new IncomeExpenses(commandString, commandInt, familyId));
-                break;
+                System.out.println("Ваши траты превышают балланс. Вы не можете себе это позволить.");
             }
+
+            commandString = "карманные расходы";
+            System.out.println("Какую сумму планируете выделить в этом месяце на карманные расходы");
+            commandInt = scanner.nextInt();
+            if (incomeExpensesService.possibleBuy(commandInt)) {
+                incomeExpensesList.add(new IncomeExpenses(commandString, -commandInt, familyId));
+            } else {
+                System.out.println("Ваши траты превышают балланс. Вы не можете себе это позволить.");
+            }
+
+
+            command = 1;
+            while (command == 1) {
+                System.out.println("Планируется ли в вашей семье ЕЩЁ крупные покупки в этом месяце?");
+                System.out.println("Да=1, Нет=2");
+                command = scanner.nextInt();
+                scanner.nextLine();
+                if (command == 2) {
+                } else {
+                    System.out.println("Что Вы хотите купить?");
+                    commandString = scanner.nextLine();
+                    //scanner.nextLine();
+                    System.out.println("Укажите сумму покупки");
+                    commandInt = scanner.nextInt();
+                    if (incomeExpensesService.possibleBuy(commandInt)) {
+                        incomeExpensesList.add(new IncomeExpenses(commandString, -commandInt, familyId));
+                    } else {
+                        System.out.println("Ваши траты превышают балланс. Вы не можете себе это позволить.");
+                    }
+                }
+            }
+
+            System.out.println(incomeExpensesList);
+
+            System.out.println("Сумма денежных средств на расчетном счете: "
+                    + familyService.getBalance(incomeExpensesList));
+
         }
-        commandString = "расходы на питание";
-        System.out.println("Какую сумму планируете выделить в этом месяце на продукты");
-        commandInt = scanner.nextInt();
-        if (commandInt > 0) {
-            commandInt = -commandInt;
-        }
-        incomeExpensesList.add(new IncomeExpenses(commandString, commandInt, familyId));
-
-
-        commandString = "карманные расходы";
-        System.out.println("Какую сумму планируете выделить в этом месяце на карманные расходы");
-        commandInt = scanner.nextInt();
-        if (commandInt > 0) {
-            commandInt = -commandInt;
-        }
-        incomeExpensesList.add(new IncomeExpenses(commandString, commandInt, familyId));
-
-
-        System.out.println(incomeExpensesList);
-
-        System.out.println("Сумма денежных средств на расчетном счете: "
-                + familyService.getBalance(incomeExpensesList));
-
     }
 }

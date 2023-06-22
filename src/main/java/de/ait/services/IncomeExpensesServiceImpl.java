@@ -15,12 +15,19 @@ public class IncomeExpensesServiceImpl implements IncomeExpensesService {
         if (sum > totalSum) {
             System.out.println("Покупка не возможна, считай бюджет");
             return false;
-
         }
         System.out.println("Покупай");
-
          */
         return true;
+    }
+
+    @Override
+    public int addAsideMoney(int x, List<IncomeExpenses> y) {
+        int accum = 0;
+        for (int i = 0; i < y.size(); i++) {
+            accum = accum + y.get(i).getSum();
+        }
+        return accum / 100 * x;  //накопления, надо обязательно здесь пополнить переменную накоплений!!!!!!
     }
 
     @Override
