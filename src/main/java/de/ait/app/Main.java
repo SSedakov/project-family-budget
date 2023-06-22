@@ -55,7 +55,7 @@ public class Main {
                     commandInt = -commandInt;
                 }
                 incomeExpensesList.add(new IncomeExpenses(commandString, commandInt, familyId));
-          }
+            }
             System.out.println("Планируете ли Вы отпуск в этом месяце?");
             System.out.println("Да=1, Нет=2");
             command = scanner.nextInt();
@@ -91,5 +91,9 @@ public class Main {
 
 
         System.out.println(incomeExpensesList);
-        }
+
+        System.out.println("Сумма денежных средств на расчетном счете: "
+                + familyService.getBalance(incomeExpensesList));
+
     }
+}
