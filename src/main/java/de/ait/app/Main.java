@@ -79,7 +79,6 @@ public class Main {
             } else {
                 System.out.println("Ваши траты превышают балланс. Вы не можете себе это позволить.");
             }
-
             commandString = "карманные расходы";
             System.out.println("Какую сумму планируете выделить в этом месяце на карманные расходы");
             commandInt = scanner.nextInt();
@@ -119,3 +118,4 @@ public class Main {
         }
     }
 }
+
