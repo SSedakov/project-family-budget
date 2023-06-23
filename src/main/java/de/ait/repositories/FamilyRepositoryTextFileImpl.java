@@ -1,12 +1,11 @@
 package de.ait.repositories;
 
+import de.ait.models.Family;
 import de.ait.models.FamilyMember;
 import de.ait.models.IncomeExpenses;
 
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,13 +15,14 @@ public class FamilyRepositoryTextFileImpl implements FamilyRepository {
 
 
 
+
     public FamilyRepositoryTextFileImpl(String fileName) {
         this.fileName = fileName;
     }
 
 
     @Override
-    public List<FamilyMember> createFamily(int familyId){
+    public List<FamilyMember> createFamilyMember(int familyId){
         List<FamilyMember> members = new ArrayList<>();
         try (FileReader fileReader = new FileReader(fileName);
 
@@ -42,6 +42,8 @@ public class FamilyRepositoryTextFileImpl implements FamilyRepository {
 
         return members;
     }
+
+
     //
 
 
@@ -54,11 +56,40 @@ public class FamilyRepositoryTextFileImpl implements FamilyRepository {
         String status = parsed[4];
         int salary = Integer.parseInt(parsed[5]);
 
-        // incomeExpenses.add(new IncomeExpenses("Salary ",salary,familyId));
+
 
         return new FamilyMember(
                 firstName, lastName, age, status, salary,  familyId
         );
+    }
+    @Override
+    public Family createFamily(List<FamilyMember> memberList) {
+
+        int balance = 0;
+        int asideMoney = 0;
+        int familyId = 0;
+        for (int i = 0; i < memberList.size(); i++) {
+           balance = balance + memberList.get(i).getSalary();
+           familyId = memberList.get(i).getFamilyId();
+        }
+        return new Family(balance,asideMoney,familyId);
+    }
+
+    @Override
+    public void writeIncomeExpensesFile(List<IncomeExpenses> list) {
+        try (FileWriter fileWriter = new FileWriter("IncomeExpensesReport.txt");
+
+             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
+            for (int i = 0; i < list.size(); i++) {
+                bufferedWriter.write("" + list.get(i).);
+                bufferedWriter.newLine();
+            }
+            bufferedWriter.close();
+        } catch (IOException e) {
+            System.err.println("Произошла ошибка");
+        }
+
+
     }
 
     /*

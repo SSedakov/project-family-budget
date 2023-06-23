@@ -3,10 +3,6 @@ package de.ait.services;
 import de.ait.models.*;
 import de.ait.repositories.FamilyRepository;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class FamilyServiceImpl implements FamilyService {
@@ -25,7 +21,7 @@ public class FamilyServiceImpl implements FamilyService {
 
     @Override
     public List<FamilyMember> getAllMembers(int familyId) {
-        return familyRepository.createFamily(familyId);
+        return familyRepository.createFamilyMember(familyId);
     }
 
     @Override
@@ -37,7 +33,13 @@ public class FamilyServiceImpl implements FamilyService {
         }
         return totalBalance;
         }
+
+    @Override
+    public void writeIncomeExpensesFile(List<IncomeExpenses> list) {
+        familyRepository.writeIncomeExpensesFile(list);
     }
+
+}
 
 
 

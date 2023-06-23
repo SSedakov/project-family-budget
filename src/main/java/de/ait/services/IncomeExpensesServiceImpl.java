@@ -1,32 +1,38 @@
 package de.ait.services;
 
+import de.ait.models.Family;
 import de.ait.models.FamilyMember;
 import de.ait.models.IncomeExpenses;
+import de.ait.repositories.FamilyRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 public class IncomeExpensesServiceImpl implements IncomeExpensesService {
+    private  FamilyRepository familyRepository;
+    private FamilyService familyService = new FamilyServiceImpl(familyRepository);
+    private Family family;
 
-    public boolean possibleBuy(int sum) {
-        /*
-       int totalSum = familyRepository.formBudget();
-        if (sum > totalSum) {
+    public boolean possibleBuy(List<IncomeExpenses> incomeExpensesList,int sum) {
+
+        int result = familyService.getBalance(incomeExpensesList);
+        if (sum > result) {
             System.out.println("Покупка не возможна, считай бюджет");
             return false;
         }
         System.out.println("Покупай");
-         */
+
         return true;
     }
 
     @Override
-    public int addAsideMoney(int x, List<IncomeExpenses> y) {
+    public int addAsideMoney(int x, List<IncomeExpenses> y,Family family) {
         int accum = 0;
         for (int i = 0; i < y.size(); i++) {
             accum = accum + y.get(i).getSum();
         }
+        family.setAsideMoney(accum / 100 * x);
         return accum / 100 * x;  //накопления, надо обязательно здесь пополнить переменную накоплений!!!!!!
     }
 

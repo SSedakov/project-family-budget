@@ -5,13 +5,14 @@ import java.util.UUID;
 public class Family {
     private int balance;
     private int asideMoney;
-    private String familyId;
+    private int familyId;
 
-    public Family( int balance, int asideMoney, String familyId) {
+    public Family( int balance, int asideMoney, int familyId) {
         this.balance = balance;
         this.asideMoney = asideMoney;
         this.familyId = familyId;
     }
+
     public int getBalance() {
         return balance;
     }
@@ -24,12 +25,15 @@ public class Family {
     public void setAsideMoney(int asideMoney) {
         this.asideMoney = asideMoney;
     }
-    public String getFamilyId() {
+
+    public int getFamilyId() {
         return familyId;
     }
-    public void setFamilyId(String familyId) {
+
+    public void setFamilyId(int familyId) {
         this.familyId = familyId;
     }
+
     @Override
     public String toString() {
         return "Family{" +
