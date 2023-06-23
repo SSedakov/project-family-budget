@@ -28,7 +28,6 @@ public class FamilyServiceImpl implements FamilyService {
     public int getBalance(List<IncomeExpenses> incomeExpensesList) {
         int totalBalance = 0;
         for (IncomeExpenses incomeExpenses : incomeExpensesList) {
-
             totalBalance += incomeExpenses.getSum();
         }
         return totalBalance;

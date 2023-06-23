@@ -7,7 +7,6 @@ import de.ait.repositories.FamilyRepositoryTextFileImpl;
 import de.ait.services.FamilyService;
 import de.ait.services.FamilyServiceImpl;
 import de.ait.services.IncomeExpensesServiceImpl;
-
 import java.util.List;
 import java.util.Scanner;
 public class Main {
@@ -22,14 +21,38 @@ public class Main {
         List<IncomeExpenses> incomeExpensesList = incomeExpensesService.formBudget(familyMemberList);
         Family family = familyRepository.createFamily(familyMemberList);
 
-
-
-
         System.out.println(incomeExpensesList);
 
         int command = 1;
         String commandString = "";
         int commandInt = 0;
+
+        System.out.printf("%n %n" +
+                    "********************** Привет!!! **********************  %n" +
+                    "********** Я планировщик бюджета твоей семьи. ********* %n" +
+                    "**  Помогу тебе распланировать его и еще и накопить. ** %n" +
+                    "******  Я уже знаю стартовый бюджет твоей семьи) ****** %n" +
+                    "********************** Начнем? ************************ %n" +
+                    "******************* Да=1, Нет=2 *********************** %n");
+
+        command = scanner.nextInt();
+        scanner.nextLine();
+        if (command == 2) {
+            System.out.printf(
+                    "******************** Ок. Как скажешь.****************** %n" +
+                    "**** В файле txt ты можешь получить всю информацию **** %n" +
+                    "************ о стартовом бюджете твоей семьи. ********* %n");
+            familyService.writeIncomeExpensesFile(incomeExpensesList);
+            return;
+        } else {
+            System.out.println("Укажите источник дохода");
+            commandString = scanner.nextLine();
+            //scanner.nextLine();
+            System.out.println("Укажите сумму дохода");
+            commandInt = scanner.nextInt();
+
+    }
+
 
         while (command == 1) {
             System.out.println("Планируется ли в вашей семье ЕЩЁ дополнительный доход в этом месяце(кроме зп)?");

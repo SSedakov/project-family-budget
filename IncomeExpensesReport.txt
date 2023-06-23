@@ -1,0 +1,8 @@
+IncomeExpenses{title='father salary', sum=4000, id='4ddfa310-4044-4d95-abb4-0666fec55cea'}
+IncomeExpenses{title='mother salary', sum=4000, id='b138d268-11d4-439e-aba7-93c517e1000f'}
+IncomeExpenses{title='son salary', sum=0, id='e284efef-a4fa-4e13-81fd-e9f48939fdd4'}
+IncomeExpenses{title='daughter salary', sum=0, id='08f1242f-1640-482b-816e-08f3d5010879'}
+IncomeExpenses{title='jjj', sum=22, id='40a07c94-e3d5-4e04-a2d7-dddf227040e4'}
+IncomeExpenses{title='Накопления', sum=-1760, id='bb04379f-97a3-4af3-b912-14b84670da6a'}
+IncomeExpenses{title='расходы на питание', sum=-1, id='2a2c2c9c-b5b0-4cdc-b88d-5280cb8388cd'}
+IncomeExpenses{title='карманные расходы', sum=-22, id='aae01a37-45a0-4a4e-a3d9-dcbeedc81d17'}
