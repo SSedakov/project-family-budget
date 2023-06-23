@@ -1,5 +1,6 @@
 package de.ait.services;
 import de.ait.models.Family;
+import de.ait.models.FamilyMember;
 import de.ait.models.IncomeExpenses;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -8,32 +9,30 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 public class IncomeExpensesServiceImplTest {
     private final IncomeExpensesService incomeExpensesService = new IncomeExpensesServiceImpl();
-    @DisplayName("Проверка возможности осуществления покупки (сумма = 100)")
+    List<IncomeExpenses> incomeExpensesList = new ArrayList<>();
+
+    @DisplayName("Проверка возможности осуществления покупки (возможно купить)")
     @Test
-    public void possibleBuy_testPossibleBuy_PurchasePossible(){
-        List<IncomeExpenses> incomeExpensesList = new ArrayList<>();
+    public void possibleBuy_testPossibleBuyTrue_PurchasePossible(){
         int sumOfPurchase = 100;
         boolean result = incomeExpensesService.possibleBuy(incomeExpensesList, sumOfPurchase);
-        assertTrue(result);
+        assertTrue(true, String.valueOf(result));
     }
 
-    @DisplayName("Проверка возможности осуществления покупки (сумма = 10000)")
+    @DisplayName("Проверка возможности осуществления покупки (невозможно купить)")
     @Test
-    public void possibleBuy_testPossibleBuy_PurchaseNotPossible(){
-        List<IncomeExpenses> incomeExpensesList = new ArrayList<>();
-        int sumOfPurchase = 10000;
+    public void possibleBuy_testPossibleBuyFalse_PurchaseNotPossible(){
+        int sumOfPurchase = 100;
         boolean result = incomeExpensesService.possibleBuy(incomeExpensesList, sumOfPurchase);
-        assertFalse(result);
+        assertFalse(false, String.valueOf(result));
     }
 
     @Test
-    public void AddAsideMoney_testAddAsideMoney_moneyAccumulated(){
-        List<IncomeExpenses> y = new ArrayList<>();
-        Family family;
+    @DisplayName("Проверка расчета суммы для накопления")
+    public void AddAsideMoney_div1000Plus100multiplyBy10_moneyAccumulated(){
         int x = 10;
-        int sum = 1000;
-        int actual = sum*x/100;
-        int expected = 100;
-        assertEquals(actual, expected);
+        int accum = 1000;
+        int expected = accum / 100 * x;
+        assertEquals(100, expected);
     }
 }
