@@ -8,10 +8,9 @@ father salary 4000
 mother salary 4000
 son salary 0
 daughter salary 0
-pf 200
 Расходы на питание  -22
 Карманные расходы  -22
 Сумма баланса на счету: 
-8156
+7956
 Сумма накоплений: 
 0
