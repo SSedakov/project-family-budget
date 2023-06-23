@@ -26,13 +26,15 @@ public class IncomeExpensesServiceImpl implements IncomeExpensesService {
 
     @Override
     public int addAsideMoney(int x, List<IncomeExpenses> y, Family family) {
-        int accum = 0;
-        for (int i = 0; i < y.size(); i++) {
-            accum = accum + y.get(i).getSum();
+
+            int accum = 0;
+            for (int i = 0; i < y.size(); i++) {
+                accum = accum + y.get(i).getSum();
+            }
+            family.setAsideMoney(accum / 100 * x);
+            return accum / 100 * x;  //накопления, надо обязательно здесь пополнить переменную накоплений!!!!!!
         }
-        family.setAsideMoney(accum / 100 * x);
-        return accum / 100 * x;  //накопления, надо обязательно здесь пополнить переменную накоплений!!!!!!
-    }
+
 
     @Override
     public List<IncomeExpenses> formBudget(List<FamilyMember> list) {
