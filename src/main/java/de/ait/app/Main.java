@@ -90,7 +90,7 @@ public class Main {
                 System.out.printf("%n%n                        Вау! Ты так и на яхту соберешь!!!  %n%n");
 
             }
-
+        }
             System.out.printf(
                     "                              Планируешь ли ты оплатить %n" +
                             "                         в этом месяце коммунальные услуги?  %n" +
@@ -185,6 +185,6 @@ public class Main {
             familyService.writeIncomeExpensesFile(incomeExpensesList, familyMemberList, family, actualBalance);
         }
     }
-}
+
 
 

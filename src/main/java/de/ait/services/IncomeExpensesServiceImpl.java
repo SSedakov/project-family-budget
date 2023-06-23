@@ -32,7 +32,7 @@ public class IncomeExpensesServiceImpl implements IncomeExpensesService {
                 accum = accum + y.get(i).getSum();
             }
             family.setAsideMoney(accum / 100 * x);
-            return accum / 100 * x;  //накопления, надо обязательно здесь пополнить переменную накоплений!!!!!!
+            return accum / 100 * x;
         }
 
 
