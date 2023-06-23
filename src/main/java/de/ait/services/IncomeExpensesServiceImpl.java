@@ -10,24 +10,22 @@ import java.util.List;
 import java.util.UUID;
 
 public class IncomeExpensesServiceImpl implements IncomeExpensesService {
-    private  FamilyRepository familyRepository;
+    private FamilyRepository familyRepository;
     private FamilyService familyService = new FamilyServiceImpl(familyRepository);
     private Family family;
 
-    public boolean possibleBuy(List<IncomeExpenses> incomeExpensesList,int sum) {
+    public boolean possibleBuy(List<IncomeExpenses> incomeExpensesList, int sum) {
 
         int result = familyService.getBalance(incomeExpensesList);
         if (sum > result) {
-            System.out.println("Покупка не возможна, считай бюджет");
             return false;
         }
-        System.out.println("Покупай");
 
         return true;
     }
 
     @Override
-    public int addAsideMoney(int x, List<IncomeExpenses> y,Family family) {
+    public int addAsideMoney(int x, List<IncomeExpenses> y, Family family) {
         int accum = 0;
         for (int i = 0; i < y.size(); i++) {
             accum = accum + y.get(i).getSum();
@@ -40,7 +38,7 @@ public class IncomeExpensesServiceImpl implements IncomeExpensesService {
     public List<IncomeExpenses> formBudget(List<FamilyMember> list) {
         List<IncomeExpenses> incomeExpenses = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {
-            incomeExpenses.add(new IncomeExpenses(list.get(i).getStatus()+" salary", list.get(i).getSalary(), list.get(i).getFamilyId()));
+            incomeExpenses.add(new IncomeExpenses(list.get(i).getStatus() + " salary", list.get(i).getSalary(), list.get(i).getFamilyId()));
         }
         return incomeExpenses;
 
