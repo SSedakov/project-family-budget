@@ -9,5 +9,5 @@ import java.util.List;
 public interface FamilyRepository {
     List<FamilyMember> createFamilyMember(int familyId);
     Family createFamily(List<FamilyMember> memberList);
-    void writeIncomeExpensesFile(List<IncomeExpenses> list);
+    void writeIncomeExpensesFile(List<IncomeExpenses> list,List<FamilyMember> familyMemberList,Family family,int actualBalance);
 }

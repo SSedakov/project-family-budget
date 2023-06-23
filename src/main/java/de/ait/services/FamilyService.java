@@ -9,7 +9,5 @@ import java.util.List;
 public interface FamilyService {
     List<FamilyMember> getAllMembers(int familyId);
     int getBalance(List<IncomeExpenses> incomeExpensesList);
-    public void writeIncomeExpensesFile(List<IncomeExpenses> list);
-
-
+    public void writeIncomeExpensesFile(List<IncomeExpenses> list,List<FamilyMember> familyMemberList,Family family,int actualBalance);
 }

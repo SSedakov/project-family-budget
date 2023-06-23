@@ -146,8 +146,8 @@ public class Main {
         System.out.println(family.getAsideMoney());
 
 
-
-        familyService.writeIncomeExpensesFile(incomeExpensesList);
+        int actualBalance = familyService.getBalance(incomeExpensesList);
+        familyService.writeIncomeExpensesFile(incomeExpensesList,familyMemberList,family,actualBalance);
 
 
         }
