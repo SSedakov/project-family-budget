@@ -81,7 +81,7 @@ public class FamilyRepositoryTextFileImpl implements FamilyRepository {
 
              BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
             for (int i = 0; i < list.size(); i++) {
-                bufferedWriter.write("" + list.get(i).);
+                bufferedWriter.write("" + list.get(i));
                 bufferedWriter.newLine();
             }
             bufferedWriter.close();
@@ -91,22 +91,6 @@ public class FamilyRepositoryTextFileImpl implements FamilyRepository {
 
 
     }
-
-    /*
-    @Override
-    public List<IncomeExpenses> createList() {
-        return incomeExpenses;
-    }
-
-    @Override
-    public List<IncomeExpenses> addToList(String title, int sum) {
-        totalBudget = totalBudget + sum;
-        incomeExpenses.add(new IncomeExpenses(title, sum));
-        return incomeExpenses;
-    }
-
-     */
-
 }
 
 
