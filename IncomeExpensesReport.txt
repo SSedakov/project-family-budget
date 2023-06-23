@@ -1,0 +1,14 @@
+Наша семья состоит из 4 человек
+father
+mother
+son
+daughter
+Наши доходы и расходы составляют: 
+father salary 4000
+mother salary 4000
+son salary 0
+daughter salary 0
+Сумма баланса на счету: 
+8000
+Сумма накоплений: 
+0
