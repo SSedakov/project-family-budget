@@ -76,20 +76,36 @@ public class FamilyRepositoryTextFileImpl implements FamilyRepository {
     }
 
     @Override
-    public void writeIncomeExpensesFile(List<IncomeExpenses> list) {
+    public void writeIncomeExpensesFile(List<IncomeExpenses> list,List<FamilyMember> familyMemberList,Family family,int actualBalance) {
         try (FileWriter fileWriter = new FileWriter("IncomeExpensesReport.txt");
 
              BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
-            for (int i = 0; i < list.size(); i++) {
-                bufferedWriter.write("" + list.get(i));
+             bufferedWriter.write("Наша семья состоит из " + familyMemberList.size() + " человек");
+             bufferedWriter.newLine();
+            for (int i = 0; i < familyMemberList.size(); i++) {
+                bufferedWriter.write("" + familyMemberList.get(i).getStatus());
                 bufferedWriter.newLine();
             }
+
+            bufferedWriter.write("Наши доходы и расходы составляют: ");
+            bufferedWriter.newLine();
+            for (int i = 0; i < list.size(); i++) {
+                bufferedWriter.write("" + list.get(i).getTitle() + " " + list.get(i).getSum());
+                bufferedWriter.newLine();
+            }
+            bufferedWriter.write("Сумма баланса на счету: ");
+            bufferedWriter.newLine();
+            bufferedWriter.write("" + actualBalance);
+
+            bufferedWriter.newLine();
+            bufferedWriter.write("Сумма накоплений: ");
+            bufferedWriter.newLine();
+            bufferedWriter.write("" + family.getAsideMoney());
+
             bufferedWriter.close();
         } catch (IOException e) {
             System.err.println("Произошла ошибка");
         }
-
-
     }
 }
 

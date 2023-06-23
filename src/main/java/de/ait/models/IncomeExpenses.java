@@ -15,9 +15,6 @@ public class IncomeExpenses {
         this.familyId = familyId;
 
     }
-
-
-
     @Override
     public String toString() {
         return "IncomeExpenses{" +
@@ -50,6 +47,4 @@ public class IncomeExpenses {
     public void setId(String id) {
         this.id = id;
     }
-
-
 }
