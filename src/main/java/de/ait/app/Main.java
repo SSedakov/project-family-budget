@@ -37,6 +37,7 @@ public class Main {
         command = scanner.nextInt();
         scanner.nextLine();
         if (command == 2) {
+
             System.out.printf(
                     "                              Ок. Может тогда в другой раз)%n" +
                             "                     В файле txt ты можешь получить всю информацию. %n" +
