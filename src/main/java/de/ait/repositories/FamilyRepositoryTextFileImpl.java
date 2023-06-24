@@ -80,28 +80,47 @@ public class FamilyRepositoryTextFileImpl implements FamilyRepository {
         try (FileWriter fileWriter = new FileWriter("IncomeExpensesReport.txt");
 
              BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
-             bufferedWriter.write("Наша семья состоит из " + familyMemberList.size() + " человек:");
+             bufferedWriter.write("**************************************************");
+             bufferedWriter.newLine();
+             bufferedWriter.write("          БЮДЖЕТ СЕМЬИ НА текущий МЕСЯЦ");
+             bufferedWriter.newLine();
+             bufferedWriter.write("**************************************************");
+             bufferedWriter.newLine();
+             bufferedWriter.write(" ");
+             bufferedWriter.newLine();
+             bufferedWriter.write("       Наша семья состоит из " + familyMemberList.size() + " человек");
              bufferedWriter.newLine();
             for (int i = 0; i < familyMemberList.size(); i++) {
-                bufferedWriter.write("-" + familyMemberList.get(i).getStatus());
+                bufferedWriter.write(" * " + familyMemberList.get(i).getStatus()+" - "
+                        +familyMemberList.get(i).getFirstName()+ " "+ familyMemberList.get(i).getLastName());
                 bufferedWriter.newLine();
             }
-
-            bufferedWriter.write("Наши доходы и расходы составляют: ");
+            bufferedWriter.write("--------------------------------------------------");
+            bufferedWriter.newLine();
+            bufferedWriter.write(" ");
+            bufferedWriter.newLine();
+            bufferedWriter.write("        Наши доходы и расходы составляют ");
             bufferedWriter.newLine();
             for (int i = 0; i < list.size(); i++) {
-                bufferedWriter.write("" + list.get(i).getTitle() + " " + list.get(i).getSum());
+                bufferedWriter.write(" # " + list.get(i).getTitle() + " " + list.get(i).getSum());
                 bufferedWriter.newLine();
             }
-            bufferedWriter.write("Сумма баланса на счету: ");
+            bufferedWriter.write("--------------------------------------------------");
             bufferedWriter.newLine();
-            bufferedWriter.write("" + actualBalance);
+            bufferedWriter.write("                       БАЛАНС ");
+            bufferedWriter.newLine();
+            bufferedWriter.write("                       " + actualBalance);
 
             bufferedWriter.newLine();
-            bufferedWriter.write("Сумма накоплений: ");
+            bufferedWriter.write(" ");
             bufferedWriter.newLine();
-            bufferedWriter.write("" + family.getAsideMoney());
-
+            bufferedWriter.write("                     НАКОПЛЕНИЯ ");
+            bufferedWriter.newLine();
+            bufferedWriter.write("                       " + family.getAsideMoney());
+            bufferedWriter.newLine();
+            bufferedWriter.write(" ");
+            bufferedWriter.newLine();
+            bufferedWriter.write("**************************************************");
             bufferedWriter.close();
         } catch (IOException e) {
             System.err.println("Произошла ошибка");
