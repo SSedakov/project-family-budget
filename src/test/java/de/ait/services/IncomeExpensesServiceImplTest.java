@@ -30,9 +30,13 @@ public class IncomeExpensesServiceImplTest {
     @Test
     @DisplayName("Проверка расчета суммы для накопления")
     public void AddAsideMoney_div1000Plus100multiplyBy10_moneyAccumulated(){
+        Family family = new Family(5000, 10, 1);
+        incomeExpensesList.add(new IncomeExpenses("Salary 1", 3000, 1));
+        incomeExpensesList.add(new IncomeExpenses("Salary 2", 2000, 1));
         int x = 10;
-        int accum = 1000;
+        int result = incomeExpensesService.addAsideMoney(x, incomeExpensesList, family);
+        int accum = 3000 + 2000;
         int expected = accum / 100 * x;
-        assertEquals(100, expected);
+        assertEquals(expected, result);
     }
 }
