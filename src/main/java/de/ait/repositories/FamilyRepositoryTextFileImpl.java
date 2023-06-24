@@ -80,10 +80,10 @@ public class FamilyRepositoryTextFileImpl implements FamilyRepository {
         try (FileWriter fileWriter = new FileWriter("IncomeExpensesReport.txt");
 
              BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
-             bufferedWriter.write("Наша семья состоит из " + familyMemberList.size() + " человек");
+             bufferedWriter.write("Наша семья состоит из " + familyMemberList.size() + " человек:");
              bufferedWriter.newLine();
             for (int i = 0; i < familyMemberList.size(); i++) {
-                bufferedWriter.write("" + familyMemberList.get(i).getStatus());
+                bufferedWriter.write("-" + familyMemberList.get(i).getStatus());
                 bufferedWriter.newLine();
             }
 
